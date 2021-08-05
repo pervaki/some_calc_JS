@@ -1,0 +1,45 @@
+.parent{
+	width: 180px; 
+	height: 100px;
+    background: #ccc;
+    border: solid 1px black; 
+    position: absolute; 
+    margin-left: 40%;
+    margin-right: 50%;
+    padding: 30px;
+}
+
+.danni{
+	width: 80px; 
+	height: 100px;
+    background: #ccc;
+    border: solid 1px black; 
+    padding: 30px;
+    position: absolute;
+    margin-left: 20%; 
+}
+
+.zminni{
+	margin-bottom: 17px;
+}
+
+.vvod{
+	margin-top: -15px;
+	margin-bottom: 10px;
+}
+
+.ryad{
+	margin-top: auto;
+    margin-bottom: auto;
+    padding: 5px;
+}
+
+.buts{
+	width: 25px; 
+	height: 25px;
+}
+
+.but2{
+	width: 155px; 
+	height: 35px;
+}
