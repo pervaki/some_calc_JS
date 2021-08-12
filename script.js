@@ -29,9 +29,7 @@ objPlus.onclick = function(){
 	f="+";
 	objPole.value = null;
 	console.log(res);
-	objTep.value = "Teper. "+t;
-	objPop.value = "Rezult. "+res;
-	objDiya.value = "Znak "+f;
+	outResLeftPanel(t,f,res);
 }
 
 objMinus.onclick = function(){
@@ -41,9 +39,7 @@ objMinus.onclick = function(){
 	f="-";
 	objPole.value = null;
 	console.log(res);
-	objTep.value = "Teper. "+t;
-	objPop.value = "Rezult. "+res;
-	objDiya.value = "Znak "+f;
+	outResLeftPanel(t,f,res);
 }
 
 
@@ -54,9 +50,7 @@ objMnoj.onclick = function(){
 	f="*";
 	objPole.value = null;
 	console.log(res);
-	objTep.value = "Teper. "+t;
-	objPop.value = "Rezult. "+res;
-	objDiya.value = "Znak "+f;
+	outResLeftPanel(t,f,res);
 }
 
 
@@ -67,9 +61,7 @@ objDil.onclick = function(){
 	f="/";
 	objPole.value = null;
 	console.log(res);
-	objTep.value = "Teper. "+t;
-	objPop.value = "Rezult. "+res;
-	objDiya.value = "Znak "+f;
+	outResLeftPanel(t,f,res);
 }
 
 objClear.onclick = function(){
@@ -85,4 +77,12 @@ objDorivn.onclick = function(){
 	let t = parseFloat(objPole.value);
 	let v = calc(res,t,f);
 	if(objPole.value == "error"){ objPole.value = v;}else objPole.value = v;
+
+}
+
+function outResLeftPanel(cur,act,res){
+	objTep.value = "Teper. "+cur;
+	objPop.value = "Rezult. "+res;
+	objDiya.value = "Znak "+act;
+	document.getElementById('pole').setAttribute('placeholder',res);
 }
