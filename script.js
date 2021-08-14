@@ -103,42 +103,10 @@ function outResLeftPanel(cur,act,res){
 	document.getElementById('pole').focus();
 }
 
-n1Obj.onclick = function(){
-		objPole.value += n1Obj.value;
-}
+let btns_num = document.getElementsByClassName('btn-numb');
 
-n2Obj.onclick = function(){
-	objPole.value += n2Obj.value;
-}
-
-n3Obj.onclick = function(){
-	objPole.value += n1Obj.value;
-}
-
-n4Obj.onclick = function(){
-	objPole.value += n1Obj.value;
-}
-
-n5Obj.onclick = function(){
-	objPole.value += n1Obj.value;
-}
-
-n6Obj.onclick = function(){
-	objPole.value += n1Obj.value;
-}
-
-n7Obj.onclick = function(){
-	objPole.value += n1Obj.value;
-}
-
-n8Obj.onclick = function(){
-	objPole.value += n1Obj.value;
-}
-
-n9Obj.onclick = function(){
-	objPole.value += n1Obj.value;
-}
-
-n0Obj.onclick = function(){
-	objPole.value += n1Obj.value;
-}
+ for(let i=0;i<btns_num.length;i++){
+		btns_num[i].onclick = function (e){
+			objPole.value+=this.value;
+		}
+	}
