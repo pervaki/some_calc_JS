@@ -38,8 +38,10 @@ let n9Obj = document.getElementById("n9");
 }
 
 objBackspace.onclick = function (){
-	let t = parseFloat(objPole.value);
-	objPole.value = parseInt(t/10);
+	let t = objPole.value;
+	objPole.value = parseFloat(t.substring(0,t.length-1));
+	/*let str = "abcd";
+	console.log(str.substring(str.length,str.length-1));*/
 }
 
 objPlus.onclick = function(){
