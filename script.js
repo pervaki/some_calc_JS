@@ -13,7 +13,21 @@ let objDiya = document.getElementById("diya");
 let f="*";
 let res=1;
 
-function calc(a,b,act){
+let n0Obj = document.getElementById("n0");
+let n1Obj = document.getElementById("n1");
+let n2Obj = document.getElementById("n2");
+let n3Obj = document.getElementById("n3");
+let n4Obj = document.getElementById("n4");
+let n5Obj = document.getElementById("n5");
+let n6Obj = document.getElementById("n6");
+let n7Obj = document.getElementById("n7");
+let n8Obj = document.getElementById("n8");
+let n9Obj = document.getElementById("n9");
+
+	/**
+	 * a
+	 */
+	function calc(a,b,act){
  	let r;
  	if(act=="+")r=a+b;else
  	if(act=="-")r=a-b;else
@@ -29,9 +43,7 @@ objPlus.onclick = function(){
 	f="+";
 	objPole.value = null;
 	console.log(res);
-	objTep.value = "Teper. "+t;
-	objPop.value = "Rezult. "+res;
-	objDiya.value = "Znak "+f;
+	outResLeftPanel(t,f,res);
 }
 
 objMinus.onclick = function(){
@@ -41,9 +53,7 @@ objMinus.onclick = function(){
 	f="-";
 	objPole.value = null;
 	console.log(res);
-	objTep.value = "Teper. "+t;
-	objPop.value = "Rezult. "+res;
-	objDiya.value = "Znak "+f;
+	outResLeftPanel(t,f,res);
 }
 
 
@@ -54,9 +64,7 @@ objMnoj.onclick = function(){
 	f="*";
 	objPole.value = null;
 	console.log(res);
-	objTep.value = "Teper. "+t;
-	objPop.value = "Rezult. "+res;
-	objDiya.value = "Znak "+f;
+	outResLeftPanel(t,f,res);
 }
 
 
@@ -67,9 +75,7 @@ objDil.onclick = function(){
 	f="/";
 	objPole.value = null;
 	console.log(res);
-	objTep.value = "Teper. "+t;
-	objPop.value = "Rezult. "+res;
-	objDiya.value = "Znak "+f;
+	outResLeftPanel(t,f,res);
 }
 
 objClear.onclick = function(){
@@ -85,4 +91,54 @@ objDorivn.onclick = function(){
 	let t = parseFloat(objPole.value);
 	let v = calc(res,t,f);
 	if(objPole.value == "error"){ objPole.value = v;}else objPole.value = v;
+	outResLeftPanel(t,f,res);
+
+}
+
+function outResLeftPanel(cur,act,res){
+	objTep.value = "Teper. "+cur;
+	objPop.value = "Rezult. "+res;
+	objDiya.value = "Znak "+act;
+	document.getElementById('pole').setAttribute('placeholder',res);
+	document.getElementById('pole').focus();
+}
+
+n1Obj.onclick = function(){
+		objPole.value += n1Obj.value;
+}
+
+n2Obj.onclick = function(){
+	objPole.value += n2Obj.value;
+}
+
+n3Obj.onclick = function(){
+	objPole.value += n1Obj.value;
+}
+
+n4Obj.onclick = function(){
+	objPole.value += n1Obj.value;
+}
+
+n5Obj.onclick = function(){
+	objPole.value += n1Obj.value;
+}
+
+n6Obj.onclick = function(){
+	objPole.value += n1Obj.value;
+}
+
+n7Obj.onclick = function(){
+	objPole.value += n1Obj.value;
+}
+
+n8Obj.onclick = function(){
+	objPole.value += n1Obj.value;
+}
+
+n9Obj.onclick = function(){
+	objPole.value += n1Obj.value;
+}
+
+n0Obj.onclick = function(){
+	objPole.value += n1Obj.value;
 }
