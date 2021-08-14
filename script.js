@@ -5,6 +5,7 @@ let objDil = document.getElementById("b3");
 let objMnoj = document.getElementById("b4");
 let objClear = document.getElementById("cb");
 let objDorivn = document.getElementById("b5");
+let objBackspace = document.getElementById("backspace");
 
 let objTep = document.getElementById("tep");
 let objPop = document.getElementById("pop");
@@ -34,6 +35,11 @@ let n9Obj = document.getElementById("n9");
  	if(act=="*")r=a*b;else
  	if(act=="/" && b!=0)r=a/b;else r="error";
  	return r;
+}
+
+objBackspace.onclick = function (){
+	let t = parseFloat(objPole.value);
+	objPole.value = parseInt(t/10);
 }
 
 objPlus.onclick = function(){
@@ -91,7 +97,9 @@ objDorivn.onclick = function(){
 	let t = parseFloat(objPole.value);
 	let v = calc(res,t,f);
 	if(objPole.value == "error"){ objPole.value = v;}else objPole.value = v;
-	outResLeftPanel(t,f,res);
+	objTep.value = null;
+	objPop.value = null;
+	objDiya.value = null;
 
 }
 
