@@ -23,6 +23,26 @@
 	margin-bottom: 17px;
 }
 
+.history{
+    width: 100px;
+    height: 150px;
+    background: #ececec;
+    border: solid 1px black;
+    position: absolute;
+    margin-left: 73%;
+    padding: 30px;
+}
+
+.historyBlock{
+    width: 120%;
+    height: 20%;
+    background: #dedede;
+    margin-left: -10%;
+    margin-top: -20%;
+    margin-bottom: 29%;
+    border: solid 0.5px black;
+}
+
 .vvod{
 	margin-top: -15px;
 	margin-bottom: 10px;
