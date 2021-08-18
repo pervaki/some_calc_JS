@@ -52,7 +52,6 @@ objBackspace.onclick = function (){
 
 objPlus.onclick = function(){
 	let t = parseFloat(objPole.value);
-	calc(res,t,f);
 	res=calc(res,t,f);
 	f="+";
 	objPole.value = null;
@@ -68,7 +67,6 @@ objPlus.onclick = function(){
 
 objMinus.onclick = function(){
 	let t = parseFloat(objPole.value);
-	calc(res,t,f);
 	res=calc(res,t,f);
 	f="-";
 	objPole.value = null;
@@ -79,7 +77,6 @@ objMinus.onclick = function(){
 
 objMnoj.onclick = function(){
 	let t = parseFloat(objPole.value);
-	calc(res,t,f);
 	res=calc(res,t,f);
 	f="*";
 	objPole.value = null;
@@ -90,7 +87,6 @@ objMnoj.onclick = function(){
 
 objDil.onclick = function(){
 	let t = parseFloat(objPole.value);
-	calc(res,t,f);
 	res=calc(res,t,f);
 	f="/";
 	objPole.value = null;
