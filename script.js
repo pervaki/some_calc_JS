@@ -14,6 +14,7 @@ let objDiya = document.getElementById("diya");
 let f="*";
 let k=0;
 let res=1;
+let t2;
 
 let n0Obj = document.getElementById("n0");
 let n1Obj = document.getElementById("n1");
@@ -49,46 +50,74 @@ objBackspace.onclick = function (){
 }
 
 objPlus.onclick = function(){
+	k++;
 	let t = parseFloat(objPole.value);
 	res=calc(res,t ,f);
+	if(k==1)t2=t;
+	if(k>=2){
+		historyBlockObj.innerHTML = "<div>" + t2 + f + t + "=" + res + "</div>" + historyBlockObj.innerHTML;
+		t2 = res;
+	}
 	f="+";
 	objPole.value = null;
-	console.log(res);
 	outResLeftPanel(t,f,res);
-	k++;
-	if(k>=2){
-		let t2 = res - t;
-		historyBlockObj.innerHTML = "<div>" + t2 + f+ t + "=" + res + "</div>" + historyBlockObj.innerHTML;
-	}
+
+	console.log('k=',k);
+	console.log('t2=',t2);
+	console.log(f);
 }
 
 objMinus.onclick = function(){
+	k++;
 	let t = parseFloat(objPole.value);
 	res=calc(res,t,f);
-	f="-";
+	if(k==1)t2=t;
+	if(k>=2){
+		historyBlockObj.innerHTML = "<div>" + t2 + f + t + "=" + res + "</div>" + historyBlockObj.innerHTML;
+		t2 = res;
+	}
 	objPole.value = null;
-	console.log(res);
+	f="-";
 	outResLeftPanel(t,f,res);
+	console.log('k=',k);
+	console.log('t2=',t2);
+	console.log(f);
 }
 
 
 objMnoj.onclick = function(){
+	k++;
 	let t = parseFloat(objPole.value);
 	res=calc(res,t,f);
-	f="*";
+	if(k==1)t2=t;
+	if(k>=2){
+		historyBlockObj.innerHTML = "<div>" + t2 + f + t + "=" + res + "</div>" + historyBlockObj.innerHTML;
+		t2 = res;
+	}
 	objPole.value = null;
-	console.log(res);
+	f="*";
 	outResLeftPanel(t,f,res);
+	console.log('k=',k);
+	console.log('t2=',t2);
+	console.log(f);
 }
 
 
 objDil.onclick = function(){
+	k++;
 	let t = parseFloat(objPole.value);
 	res=calc(res,t,f);
-	f="/";
+	if(k==1)t2=t;
+	if(k>=2){
+		historyBlockObj.innerHTML = "<div>" + t2 + f + t + "=" + res + "</div>" + historyBlockObj.innerHTML;
+		t2 = res;
+	}
 	objPole.value = null;
-	console.log(res);
+	f="/";
 	outResLeftPanel(t,f,res);
+	console.log('k=',k);
+	console.log('t2=',t2);
+	console.log(f);
 }
 
 objClear.onclick = function(){
@@ -98,6 +127,7 @@ objClear.onclick = function(){
 	objTep.value = null;
 	objPop.value = null;
 	objDiya.value = null;
+	historyBlockObj.value = null;
 	document.getElementById('pole').setAttribute('placeholder',' ');
 }
 
