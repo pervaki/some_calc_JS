@@ -44,10 +44,6 @@ objBackspace.onclick = function (){
 	let t = objPole.value;
 	if(t.length==1)objPole.value = null; else
 	if(t.length!=0)objPole.value = parseFloat(t.substring(0,t.length-1));
-	k++;
-	if(k>=2){
-
-	}
 	/*let str = "abcd";
 	console.log(str.substring(str.length,str.length-1));*/
 }
@@ -59,6 +55,11 @@ objPlus.onclick = function(){
 	objPole.value = null;
 	console.log(res);
 	outResLeftPanel(t,f,res);
+	k++;
+	if(k>=2){
+		let t2 = res - t;
+		historyBlockObj.innerHTML = "<div>" + t2 + f+ t + "=" + res + "</div>" + historyBlockObj.innerHTML;
+	}
 }
 
 objMinus.onclick = function(){
