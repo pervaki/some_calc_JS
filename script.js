@@ -12,6 +12,7 @@ let objPop = document.getElementById("pop");
 let objDiya = document.getElementById("diya");
 
 let f="*";
+let k=0;
 let res=1;
 
 let n0Obj = document.getElementById("n0");
@@ -25,11 +26,7 @@ let n7Obj = document.getElementById("n7");
 let n8Obj = document.getElementById("n8");
 let n9Obj = document.getElementById("n9");
 
-let diya1Obj = document.getElementById("diya1");
-let diya2Obj = document.getElementById("diya2");
-let diya3Obj = document.getElementById("diya3");
-let diya4Obj = document.getElementById("diya4");
-let diya5Obj = document.getElementById("diya5");
+let historyBlockObj = document.getElementById("historyBlock");
 
 	/**
 	 * a
@@ -45,24 +42,23 @@ let diya5Obj = document.getElementById("diya5");
 
 objBackspace.onclick = function (){
 	let t = objPole.value;
+	if(t.length==1)objPole.value = null; else
 	if(t.length!=0)objPole.value = parseFloat(t.substring(0,t.length-1));
+	k++;
+	if(k>=2){
+
+	}
 	/*let str = "abcd";
 	console.log(str.substring(str.length,str.length-1));*/
 }
 
 objPlus.onclick = function(){
 	let t = parseFloat(objPole.value);
-	res=calc(res,t,f);
+	res=calc(res,t ,f);
 	f="+";
 	objPole.value = null;
 	console.log(res);
 	outResLeftPanel(t,f,res);
-	objPlus.onclick = function(){
-		let t2 = parseFloat(objPole.value);
-		res2=calc(res,t2,f);
-		diya1Obj.innerHTML = t + f + t2 + '=' + res2;
-		objPole.value = null;
-	}
 }
 
 objMinus.onclick = function(){
@@ -101,6 +97,7 @@ objClear.onclick = function(){
 	objTep.value = null;
 	objPop.value = null;
 	objDiya.value = null;
+	document.getElementById('pole').setAttribute('placeholder',' ');
 }
 
 objDorivn.onclick = function(){
