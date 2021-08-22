@@ -12,9 +12,12 @@ let objPop = document.getElementById("pop");
 let objDiya = document.getElementById("diya");
 
 let f="*";
+let f2="!";
 let k=0;
 let res=1;
+let temp;
 let t2;
+let t;
 
 let n0Obj = document.getElementById("n0");
 let n1Obj = document.getElementById("n1");
@@ -51,73 +54,92 @@ objBackspace.onclick = function (){
 
 objPlus.onclick = function(){
 	k++;
-	let t = parseFloat(objPole.value);
-	res=calc(res,t ,f);
-	if(k==1)t2=t;
-	if(k>=2){
-		historyBlockObj.innerHTML = "<div>" + t2 + f + t + "=" + res + "</div>" + historyBlockObj.innerHTML;
-		t2 = res;
-	}
-	f="+";
-	objPole.value = null;
-	outResLeftPanel(t,f,res);
+	if(f2=="="){res = parseFloat(objPole.value);objPole.value = null;f2="!"}else {
+		temp = t;
+		t = parseFloat(objPole.value);
+		res = calc(res, t, f);
+		if (k == 1) t2 = t;
+		if (k >= 2) {
+			historyBlockObj.innerHTML = "<div>" + t2 + f + t + "=" + res + "</div>" + historyBlockObj.innerHTML;
+			t2 = res;
+		}
+		f = "+";
 
-	console.log('k=',k);
-	console.log('t2=',t2);
-	console.log(f);
+		objPole.value = null;
+		outResLeftPanel(t, f, res);
+
+		console.log('k=', k);
+		console.log('t2=', t2);
+		console.log(f);
+	}
 }
 
 objMinus.onclick = function(){
 	k++;
-	let t = parseFloat(objPole.value);
-	res=calc(res,t,f);
-	if(k==1)t2=t;
-	if(k>=2){
-		historyBlockObj.innerHTML = "<div>" + t2 + f + t + "=" + res + "</div>" + historyBlockObj.innerHTML;
-		t2 = res;
+	if(f2=="="){res = parseFloat(objPole.value);objPole.value = null;f2="!"}else {
+		temp = t;
+		t = parseFloat(objPole.value);
+		res = calc(res, t, f);
+		if (k == 1) t2 = t;
+		if (k >= 2) {
+			historyBlockObj.innerHTML = "<div>" + t2 + f + t + "=" + res + "</div>" + historyBlockObj.innerHTML;
+			t2 = res;
+		}
+		f = "-";
+
+		objPole.value = null;
+		outResLeftPanel(t, f, res);
+
+		console.log('k=', k);
+		console.log('t2=', t2);
+		console.log(f);
 	}
-	objPole.value = null;
-	f="-";
-	outResLeftPanel(t,f,res);
-	console.log('k=',k);
-	console.log('t2=',t2);
-	console.log(f);
 }
 
 
 objMnoj.onclick = function(){
 	k++;
-	let t = parseFloat(objPole.value);
-	res=calc(res,t,f);
-	if(k==1)t2=t;
-	if(k>=2){
-		historyBlockObj.innerHTML = "<div>" + t2 + f + t + "=" + res + "</div>" + historyBlockObj.innerHTML;
-		t2 = res;
+	if(f2=="="){res = parseFloat(objPole.value);objPole.value = null;f2="!"}else {
+		temp = t;
+		t = parseFloat(objPole.value);
+		res = calc(res, t, f);
+		if (k == 1) t2 = t;
+		if (k >= 2) {
+			historyBlockObj.innerHTML = "<div>" + t2 + f + t + "=" + res + "</div>" + historyBlockObj.innerHTML;
+			t2 = res;
+		}
+		f = "*";
+
+		objPole.value = null;
+		outResLeftPanel(t, f, res);
+
+		console.log('k=', k);
+		console.log('t2=', t2);
+		console.log(f);
 	}
-	objPole.value = null;
-	f="*";
-	outResLeftPanel(t,f,res);
-	console.log('k=',k);
-	console.log('t2=',t2);
-	console.log(f);
 }
 
 
 objDil.onclick = function(){
 	k++;
-	let t = parseFloat(objPole.value);
-	res=calc(res,t,f);
-	if(k==1)t2=t;
-	if(k>=2){
-		historyBlockObj.innerHTML = "<div>" + t2 + f + t + "=" + res + "</div>" + historyBlockObj.innerHTML;
-		t2 = res;
+	if(f2=="="){res = parseFloat(objPole.value);objPole.value = null;f2="!"}else {
+		temp = t;
+		t = parseFloat(objPole.value);
+		res = calc(res, t, f);
+		if (k == 1) t2 = t;
+		if (k >= 2) {
+			historyBlockObj.innerHTML = "<div>" + t2 + f + t + "=" + res + "</div>" + historyBlockObj.innerHTML;
+			t2 = res;
+		}
+		f = "/";
+
+		objPole.value = null;
+		outResLeftPanel(t, f, res);
+
+		console.log('k=', k);
+		console.log('t2=', t2);
+		console.log(f);
 	}
-	objPole.value = null;
-	f="/";
-	outResLeftPanel(t,f,res);
-	console.log('k=',k);
-	console.log('t2=',t2);
-	console.log(f);
 }
 
 objClear.onclick = function(){
@@ -127,18 +149,25 @@ objClear.onclick = function(){
 	objTep.value = null;
 	objPop.value = null;
 	objDiya.value = null;
-	historyBlockObj.value = null;
+	historyBlockObj.innerHTML = '';
 	document.getElementById('pole').setAttribute('placeholder',' ');
 }
 
 objDorivn.onclick = function(){
+	temp = res;
 	let t = parseFloat(objPole.value);
-	let v = calc(res,t,f);
-	if(objPole.value == "error"){ objPole.value = v;}else objPole.value = v;
+	let v = calc(temp,t,f);
+	if(objPole.value == "error"){objPole.value = v;}else objPole.value = v;
+	f2 = "=";
+
+	historyBlockObj.innerHTML = "<div>" + temp + f + t + "=" + v + "</div>" + historyBlockObj.innerHTML;
+	document.getElementById('pole').setAttribute('placeholder',' ');
+	t2 = v;
+
 	objTep.value = null;
 	objPop.value = null;
 	objDiya.value = null;
-
+	console.log("res=",res);
 }
 
 function outResLeftPanel(cur,act,res){
